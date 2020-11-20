@@ -1,15 +1,39 @@
 {
   "name": "epsylon",
   "version": "0.1.0",
+  "description": "",
+  "author": "@chrisservius",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint -o ./eslint_result.html -f html ."
   },
   "dependencies": {
     "next": "10.0.2",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "airtable": "0.10.1",
+    "babel-eslint": "10.1.0",
+    "dompurify": "2.2.2",
+    "eslint": "7.13.0",
+    "eslint-config-alloy": "3.8.2",
+    "eslint-plugin-html": "6.1.1",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "html-to-text": "6.0.0",
+    "jsdom": "16.4.0",
+    "modern-css-reset": "1.3.0",
+    "nodemailer": "6.4.16",
+    "prettier": "2.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spidergon/epsylon"
   }
 }

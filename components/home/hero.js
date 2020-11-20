@@ -1,39 +1,31 @@
 import React from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
+import Actions from './actions';
 
 export default function Hero({ data }) {
   return (
-    <>
-      <section className="hero container flex column">
-        <div className="tagline center">
-          <h1>
-            Progresser en
-            <br />
-            <span>Mathématiques</span>
-          </h1>
-          <p>{data.hero.subTitle}</p>
-          <a className="btn" href={data.hero.action1.link}>
-            {data.hero.action1.label}
-          </a>
-          <a className="btn light" href={data.hero.action2.link}>
-            {data.hero.action2.label}
-          </a>
+    <section className="hero container flex column">
+      <div className="tagline center">
+        <h1>
+          Progresser en
+          <br />
+          <span>Mathématiques</span>
+        </h1>
+        <p>{data.subTitle}</p>
+        <div className="wrapper">
+          <Actions reset action1={data.action1} action2={data.action2} />
         </div>
-        <div className="imgWrap">
-          <Image alt={data.hero.alt} layout="fill" objectFit="cover" src={data.hero.img} />
-        </div>
-      </section>
+      </div>
+      <div className="imgWrap">
+        <Image alt={data.alt} layout="fill" objectFit="cover" src={data.img} />
+      </div>
 
       {/* Style */}
       <style jsx>{`
         .tagline {
           margin: 2em 0;
           align-self: center;
-        }
-        .tagline .btn {
-          margin-top: 1.5em;
-          width: 100%;
         }
         .hero h1 {
           font-size: 2rem;
@@ -54,6 +46,10 @@ export default function Hero({ data }) {
           height: 250px;
           width: 100%;
         }
+        .wrapper {
+          margin-top: 2em;
+          justify-content: center;
+        }
 
         @media (min-width: 481px) {
           .hero h1 {
@@ -61,12 +57,6 @@ export default function Hero({ data }) {
           }
           .hero p {
             font-size: 1.25rem;
-          }
-          .tagline .btn {
-            width: auto;
-          }
-          .tagline .btn:not(:first-of-type) {
-            margin-left: 1em;
           }
           .imgWrap {
             height: 300px;
@@ -97,8 +87,27 @@ export default function Hero({ data }) {
           .imgWrap {
             height: 500px;
           }
+          .wrapper {
+            justify-content: inherit;
+          }
         }
       `}</style>
-    </>
+    </section>
   );
 }
+
+Hero.propTypes = {
+  data: PropTypes.shape({
+    action1: PropTypes.shape({
+      link: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    }).isRequired,
+    action2: PropTypes.shape({
+      link: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    }).isRequired,
+    alt: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired,
+  }).isRequired,
+};

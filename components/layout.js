@@ -1,10 +1,11 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Header from './header';
 import Footer from './footer';
-// import '../styles/layout.module.css';
-// import utilStyles from '../styles/utils.module.css';
 
-export default function Layout({ children, siteData }) {
+export default function Layout({ children, siteData, title }) {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -21,9 +22,31 @@ export default function Layout({ children, siteData }) {
           rel="stylesheet"
           onLoad="this.media='all';this.onload=null;"
         />
+
+        <title>
+          {title} | {siteData.title}
+        </title>
+
+        {/* <link rel="canonical" href="https://epsylon.vercel.app">  */}
+
+        <meta content={siteData.description} name="description" />
+
+        {/* Open Graph */}
+        <meta content={title} property="og:title" />
+        <meta content={siteData.title} property="og:site_name" />
+        <meta content={siteData.description} property="og:description" />
+        <meta content={router.pathname} property="og:url" />
+        <meta content="/logo.svg" property="og:image" />
+
+        {/* Twitter */}
+        <meta content={`@${siteData.socials.twitter}`} name="twitter:site" />
+        <meta content="summary" name="twitter:card" />
       </Head>
+
       <Header menuItems={siteData.headerMenu} title={siteData.title} />
+
       <main>{children}</main>
+
       <Footer menuItems={siteData.headerMenu} socials={siteData.socials} title={siteData.title} />
     </>
   );

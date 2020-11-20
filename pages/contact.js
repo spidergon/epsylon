@@ -1,12 +1,10 @@
 import Layout from '../components/layout';
-import Hero from '../components/home/hero';
 import getSiteData from '../lib/siteData';
 
-export default function Home({ siteData }) {
-  const data = siteData.data.home;
+export default function ContactPage({ siteData }) {
   return (
-    <Layout siteData={siteData} title="Progressez en Mathématiques">
-      <Hero data={data} />
+    <Layout siteData={siteData} title="Contactez-nous">
+      <h1>Contact</h1>
     </Layout>
   );
 }

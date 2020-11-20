@@ -55,10 +55,10 @@ a.custom:focus {
   border-color: var(--primary);
 }
 
-.fluid {
+/* .fluid {
   width: 100%;
   object-fit: cover;
-}
+} */
 
 .flex {
   display: flex;

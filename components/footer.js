@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 export default function Footer({ menuItems, title, socials }) {
   return (
@@ -8,11 +9,15 @@ export default function Footer({ menuItems, title, socials }) {
         <ul className="menu flex column">
           {menuItems.map(({ link, label }, index) => (
             <li key={index}>
-              <a href={link}>{label}</a>
+              <Link href={link}>
+                <a>{label}</a>
+              </Link>
             </li>
           ))}
           <li>
-            <a href="/mentions-legales/">Mentions légales</a>
+            <Link href="/mentions-legales/">
+              <a>Mentions légales</a>
+            </Link>
           </li>
         </ul>
         <ul className="socials mt2">

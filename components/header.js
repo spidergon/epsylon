@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 export default function Header({ menuItems, title }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -7,9 +8,9 @@ export default function Header({ menuItems, title }) {
   return (
     <header>
       <div className="container flex">
-        <a className="site-title" href="/">
-          {title}
-        </a>
+        <Link href="/">
+          <a className="site-title">{title}</a>
+        </Link>
 
         {/* Desktop Menu */}
 
@@ -17,7 +18,9 @@ export default function Header({ menuItems, title }) {
           <ul className="flex">
             {menuItems.map(({ link, label }, index) => (
               <li key={index}>
-                <a href={link}>{label}</a>
+                <Link href={link}>
+                  <a>{label}</a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -38,7 +41,9 @@ export default function Header({ menuItems, title }) {
             <ul className="flex center">
               {menuItems.map(({ link, label }, index) => (
                 <li key={index}>
-                  <a href={link}>{label}</a>
+                  <Link href={link}>
+                    <a>{label}</a>
+                  </Link>
                 </li>
               ))}
             </ul>

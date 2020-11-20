@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function Header({ menuItems, title }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -152,7 +152,7 @@ Header.propTypes = {
     PropTypes.shape({
       link: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-    }).isRequired,
+    }).isRequired
   ).isRequired,
   title: PropTypes.string.isRequired,
 };

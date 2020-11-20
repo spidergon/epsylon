@@ -1,15 +1,15 @@
-import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 export default function Actions({ action1, action2, reset }) {
   return (
     <div className={`actions flex column${reset ? ' reset' : ''}`}>
-      <a className="btn" href={action1.link}>
-        {action1.label}
-      </a>
-      <a className="btn light" href={action2.link}>
-        {action2.label}
-      </a>
+      <Link href={action1.link}>
+        <a className="btn">{action1.label}</a>
+      </Link>
+      <Link href={action2.link}>
+        <a className="btn light">{action2.label}</a>
+      </Link>
 
       {/* Style */}
       <style jsx>{`

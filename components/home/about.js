@@ -1,6 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 export default function About({ data }) {
   return (

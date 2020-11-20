@@ -2,10 +2,10 @@ import Layout from '../components/layout';
 import Page from '../components/page';
 import getSiteData from '../lib/siteData';
 
-export default function ContactPage({ siteData }) {
+export default function LegalPage({ siteData }) {
   return (
-    <Layout siteData={siteData} title="Contactez-nous">
-      <Page title="Contactez-nous">Contact form here</Page>
+    <Layout siteData={siteData} title="Mentions Légales">
+      <Page title="Mentions Légales">Content here</Page>
     </Layout>
   );
 }

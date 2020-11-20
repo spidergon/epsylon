@@ -1,6 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 export default function Footer({ menuItems, title, socials }) {
   return (
@@ -49,7 +48,10 @@ export default function Footer({ menuItems, title, socials }) {
         </ul>
         <ul className="sub mt2">
           <li>
-            &copy; <a href="/">{title}</a>
+            &copy;{' '}
+            <Link href="/">
+              <a>{title}</a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -94,7 +96,7 @@ Footer.propTypes = {
     PropTypes.shape({
       link: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-    }).isRequired,
+    }).isRequired
   ).isRequired,
   title: PropTypes.string.isRequired,
   socials: PropTypes.shape({

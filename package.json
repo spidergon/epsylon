@@ -13,6 +13,8 @@
     "lint": "eslint -o ./eslint_result.html -f html ."
   },
   "dependencies": {
+    "cogo-toast": "4.2.3",
+    "formik": "2.2.5",
     "next": "10.0.2",
     "react": "17.0.1",
     "react-dom": "17.0.1"

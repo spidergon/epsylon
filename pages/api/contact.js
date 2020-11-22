@@ -17,7 +17,7 @@ export default (req, res) => {
     return result(400, 'Boop beep bop zzzzstt good bye');
   }
 
-  const requiredFields = ['name', 'email', 'msg', 'consent'];
+  const requiredFields = ['name', 'email', 'message', 'consent'];
   for (const field of requiredFields) {
     if (!body[field]) {
       return result(400, 'Invalid request');
@@ -32,7 +32,7 @@ export default (req, res) => {
     {
       Name: purify(body.name),
       Email: body.email,
-      Message: purify(body.msg),
+      Message: purify(body.message),
       Consent: body.consent,
     },
     (err) => {

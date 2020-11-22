@@ -4,7 +4,7 @@ export default function Page({ children, title }) {
   return (
     <div className="page container">
       <h1 className="center">{title}</h1>
-      <section className="center">{children}</section>
+      <section>{children}</section>
     </div>
   );
 }

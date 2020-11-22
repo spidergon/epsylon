@@ -8,8 +8,7 @@ export default base;
 /**
  * Create a contact entry.
  * @param {object} fields The fields to be created.
- * @param {function} callback The callback function to run (parameters: err, records).
  */
-export function createContact(fields, callback) {
-  base('Contact').create([{ fields }], callback);
+export function createContact(fields) {
+  return base('Contact').create([{ fields }]);
 }

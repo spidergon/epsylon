@@ -1,52 +1,53 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import Layout from '../components/layout';
 import Page from '../components/page';
-import CustomField from '../components/customField';
+import CustomField from '../components/form/customField';
+import Consent from '../components/form/consent';
 import getSiteData from '../lib/siteData';
 import toast from '../lib/toast';
 
-const handleValidate = (values) => {
-  const errors = {};
-  if (values.visu) errors.visu = true; // honeypot detected -> error
-  if (!values.name) errors.name = 'Ce champ est requis';
-  if (!values.email) errors.email = 'Ce champ est requis';
-  else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-    errors.email = 'Adresse e-mail invalide';
-  }
-  if (!values.message) errors.message = 'Ce champ est requis';
-  if (!values.consent) errors.consent = 'Veuillez cocher cette case';
-  return errors;
-};
-
 const errMsg = 'Erreur ! Veuillez réessayer ultérieurement.';
 
-const handleSubmit = (values, { setSubmitting }) => {
-  fetch(`/api/contact`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(values),
-  })
-    .then((res) => res.json())
-    .then(({ status, message }) => {
-      if (status >= 400 && status < 600) {
-        console.error(message);
-        toast(errMsg, 'error');
-      } else {
-        // It worked!
-        // TODO: reset form
-        toast('Merci ! Votre message a été envoyé avec succès.', 'success');
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      toast(errMsg, 'error');
-    })
-    .finally(() => {
-      setSubmitting(false);
-    });
-};
-
 export default function ContactPage({ siteData }) {
+  const handleValidate = (values) => {
+    const errors = {};
+    if (values.visu) errors.visu = true; // honeypot detected -> error
+    if (!values.name) errors.name = 'Ce champ est requis';
+    if (!values.email) errors.email = 'Ce champ est requis';
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = 'Adresse e-mail invalide';
+    }
+    if (!values.message) errors.message = 'Ce champ est requis';
+    if (!values.consent) errors.consent = 'Veuillez cocher cette case si vous désirez poursuivre';
+    return errors;
+  };
+
+  const handleSubmit = (values, { resetForm, setSubmitting }) => {
+    fetch(`/api/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values),
+    })
+      .then((res) => res.json())
+      .then(({ status, message }) => {
+        if (status >= 400 && status < 600) {
+          console.error(message);
+          toast(errMsg, 'error');
+        } else {
+          // It worked!
+          resetForm();
+          toast('Merci ! Votre message a été envoyé avec succès.', 'success');
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        toast(errMsg, 'error');
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
+  };
+
   return (
     <Layout siteData={siteData} title="Contactez-nous">
       <Page title="Contactez-nous">
@@ -58,28 +59,13 @@ export default function ContactPage({ siteData }) {
         >
           {({ isSubmitting }) => (
             <Form className="flex column">
-              <CustomField required autoComplete="off" label="Nom :" name="name" type="text" />
-              <CustomField required label="E-mail :" name="email" type="email" />
-              <CustomField isTextarea required label="Message :" name="message" rows="5" />
-
-              {/* Consent */}
-              <div>
-                <label className="flex" htmlFor="consent">
-                  <Field required id="consent" name="consent" type="checkbox" />
-                  <p>
-                    J’autorise Epsylon à conserver mes données personnelles transmises via ce formulaire. Aucune
-                    exploitation commerciale ne sera faite de ces données. Voir notre{' '}
-                    <a className="custom" href="/mentions-legales/#privacy" target="_blank">
-                      politique des données personnelles
-                    </a>
-                    .
-                  </p>
-                </label>
-                <ErrorMessage className="msg error" component="div" name="consent" />
-              </div>
+              <CustomField autoComplete="off" label="Nom :" name="name" type="text" />
+              <CustomField label="E-mail :" name="email" type="email" />
+              <CustomField isTextarea label="Message :" name="message" rows="5" />
+              <Consent />
 
               {/* Honey pot */}
-              <Field autoComplete="off" className="visu" name="visu" type="text" />
+              <Field autoComplete="off" className="visu" name="visu" tabIndex="-1" type="text" />
 
               <button className="btn" disabled={isSubmitting} type="submit">
                 {isSubmitting ? 'Chargment...' : 'Envoyer'}
@@ -121,10 +107,6 @@ export default function ContactPage({ siteData }) {
           input[type='checkbox']:focus,
           textarea:focus {
             box-shadow: 0 0 3px 1px var(--primary);
-          }
-          label.flex {
-            gap: 0.5em;
-            align-items: center;
           }
           .visu {
             opacity: 0;

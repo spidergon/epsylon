@@ -66,6 +66,13 @@ export default function Header({ menuItems, title }) {
 
       {/* Style */}
       <style jsx>{`
+        header {
+          position: sticky;
+          top: 0;
+          background: var(--white);
+          z-index: 1;
+        }
+
         .container {
           height: 64px;
           justify-content: space-between;

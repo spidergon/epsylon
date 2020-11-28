@@ -5,14 +5,11 @@ export default function About({ data }) {
   return (
     <section className="about space">
       <div className="container flex column">
-        <div hidden className="desktop imgWrap">
-          <Image alt={data.alt} layout="fill" objectFit="cover" src={data.img} />
-        </div>
         <div className="text">
           <h2 className="center">{data.title}</h2>
           <div dangerouslySetInnerHTML={{ __html: data.text }} />
         </div>
-        <div className="mobile imgWrap mt2">
+        <div className="imgWrap">
           <Image alt={data.alt} layout="fill" objectFit="cover" src={data.img} />
         </div>
       </div>
@@ -27,8 +24,9 @@ export default function About({ data }) {
         }
         .imgWrap {
           position: relative;
-          height: 250px;
+          margin-top: 2em;
           width: 100%;
+          height: 250px;
         }
 
         @media (min-width: 481px) {
@@ -58,14 +56,10 @@ export default function About({ data }) {
             text-align: inherit;
           }
           .imgWrap {
-            height: 500px;
-          }
-          .desktop {
-            display: block;
+            margin-top: 0;
             max-width: 640px;
-          }
-          .mobile {
-            display: none;
+            height: 500px;
+            order: -1; /* image first */
           }
         }
 

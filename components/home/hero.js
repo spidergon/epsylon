@@ -17,7 +17,7 @@ export default function Hero({ data }) {
         </div>
       </div>
       <div className="imgWrap">
-        <Image alt={data.alt} layout="fill" objectFit="cover" src={data.img} />
+        <Image priority alt={data.alt} layout="fill" objectFit="cover" src={data.img} />
       </div>
 
       {/* Style */}

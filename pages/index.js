@@ -10,8 +10,8 @@ export default function HomePage({ siteData }) {
   return (
     <Layout siteData={siteData} title="Progressez en Mathématiques">
       <Hero data={data.hero} />
-      <About data={data.about} />
       <Services data={data.services} />
+      <About data={data.about} />
       <Cta action1={data.hero.action1} action2={data.hero.action2} />
     </Layout>
   );

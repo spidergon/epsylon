@@ -103,6 +103,10 @@ section p {
   display: none;
 }
 
+.imgWrap {
+  background: #d3d3d3;
+}
+
 /* Page */
 
 .page {

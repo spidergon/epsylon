@@ -48,7 +48,7 @@ export default function About({ data }) {
 
         @media (min-width: 1025px) {
           .container {
-            flex-direction: row !important;
+            flex-direction: row;
             justify-content: inherit;
           }
           .text {

@@ -26,6 +26,7 @@ export default function Hero({ data }) {
           margin: 2em 0;
           align-self: center;
         }
+
         .hero h1 {
           font-size: 2rem;
           line-height: 1.2;
@@ -40,11 +41,13 @@ export default function Hero({ data }) {
           font-size: 1rem;
           font-weight: 500;
         }
+
         .imgWrap {
           position: relative;
           height: 250px;
           width: 100%;
         }
+
         .wrapper {
           margin-top: 2em;
           justify-content: center;
@@ -57,6 +60,7 @@ export default function Hero({ data }) {
           .hero p {
             font-size: 1.25rem;
           }
+
           .imgWrap {
             height: 300px;
           }
@@ -66,6 +70,7 @@ export default function Hero({ data }) {
           .hero h1 {
             font-size: 4rem;
           }
+
           .tagline {
             margin-top: 4em;
             max-width: 36rem;
@@ -74,18 +79,21 @@ export default function Hero({ data }) {
 
         @media (min-width: 1025px) {
           .hero {
-            flex-direction: row !important;
+            flex-direction: row;
             justify-content: space-between;
           }
+
           .tagline {
             margin-top: 5em;
             margin-right: 4em;
             text-align: inherit;
             align-self: inherit;
           }
+
           .imgWrap {
             height: 500px;
           }
+
           .wrapper {
             justify-content: inherit;
           }

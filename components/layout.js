@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import Header from './header';
 import Footer from './footer';
 
@@ -51,3 +52,16 @@ export default function Layout({ children, siteData, title }) {
     </>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  siteData: PropTypes.shape({
+    description: PropTypes.string.isRequired,
+    headerMenu: PropTypes.array.isRequired,
+    socials: PropTypes.shape({
+      twitter: PropTypes.string.isRequired,
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  title: PropTypes.string.isRequired,
+};

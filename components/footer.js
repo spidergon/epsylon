@@ -59,7 +59,7 @@ export default function Footer({ menuItems, title, socials }) {
       {/* Style */}
       <style jsx>{`
         footer {
-          padding: 0.5em 0 1em;
+          padding: 1em 0 1.5em;
           border-top: 1px solid rgba(151, 151, 151, 0.2);
         }
 
@@ -79,7 +79,7 @@ export default function Footer({ menuItems, title, socials }) {
 
         @media (min-width: 768px) {
           .menu {
-            flex-direction: row !important;
+            flex-direction: row;
             justify-content: center;
           }
           .menu li:not(:first-child) {

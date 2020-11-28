@@ -38,7 +38,7 @@ export default function Cta({ action1, action2 }) {
 
         @media (min-width: 1025px) {
           .container {
-            flex-direction: row !important;
+            flex-direction: row;
             justify-content: space-evenly;
             align-items: center;
           }

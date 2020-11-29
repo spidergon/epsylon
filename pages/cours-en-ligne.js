@@ -21,8 +21,6 @@ export default function CoursPage({ siteData }) {
 export async function getStaticProps() {
   const siteData = getSiteData();
   return {
-    props: {
-      siteData,
-    },
+    props: { siteData },
   };
 }

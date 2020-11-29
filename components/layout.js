@@ -5,15 +5,12 @@ import Header from './header';
 import Footer from './footer';
 
 export default function Layout({ children, siteData, title }) {
-  const router = useRouter();
+  const { pathname } = useRouter();
 
   return (
     <>
       <Head>
         <link href="/favicon.ico" rel="icon" />
-
-        {/* <link crossOrigin href="https://fonts.googleapis.com" rel="preconnect" /> */}
-        {/* <link crossOrigin href="https://unpkg.com" rel="preconnect" /> */}
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;display=swap" rel="stylesheet" />
 
@@ -36,7 +33,7 @@ export default function Layout({ children, siteData, title }) {
         <meta content={title} property="og:title" />
         <meta content={siteData.title} property="og:site_name" />
         <meta content={siteData.description} property="og:description" />
-        <meta content={router.pathname} property="og:url" />
+        <meta content={pathname} property="og:url" />
         <meta content="/logo.svg" property="og:image" />
 
         {/* Twitter */}

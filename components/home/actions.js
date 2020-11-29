@@ -11,7 +11,6 @@ export default function Actions({ action1, action2, reset }) {
         <a className="btn light">{action2.label}</a>
       </Link>
 
-      {/* Style */}
       <style jsx>{`
         .actions {
           gap: 1.5em;

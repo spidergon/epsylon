@@ -13,8 +13,6 @@ export default function LegalPage({ siteData }) {
 export async function getStaticProps() {
   const siteData = getSiteData();
   return {
-    props: {
-      siteData,
-    },
+    props: { siteData },
   };
 }

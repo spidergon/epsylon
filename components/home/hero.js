@@ -20,7 +20,6 @@ export default function Hero({ data }) {
         <Image alt={data.alt} layout="fill" objectFit="cover" src={data.img} />
       </div>
 
-      {/* Style */}
       <style jsx>{`
         .tagline {
           margin: 2em 0;
@@ -42,12 +41,6 @@ export default function Hero({ data }) {
           font-weight: 500;
         }
 
-        .imgWrap {
-          position: relative;
-          height: 250px;
-          width: 100%;
-        }
-
         .wrapper {
           margin-top: 2em;
           justify-content: center;
@@ -59,10 +52,6 @@ export default function Hero({ data }) {
           }
           .hero p {
             font-size: 1.25rem;
-          }
-
-          .imgWrap {
-            height: 300px;
           }
         }
 
@@ -88,10 +77,6 @@ export default function Hero({ data }) {
             margin-right: 4em;
             text-align: inherit;
             align-self: inherit;
-          }
-
-          .imgWrap {
-            height: 500px;
           }
 
           .wrapper {

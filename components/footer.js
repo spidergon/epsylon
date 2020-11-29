@@ -56,7 +56,6 @@ export default function Footer({ menuItems, title, socials }) {
         </ul>
       </div>
 
-      {/* Style */}
       <style jsx>{`
         footer {
           padding: 1em 0 1.5em;

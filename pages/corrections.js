@@ -21,8 +21,6 @@ export default function CorrectionsPage({ siteData }) {
 export async function getStaticProps() {
   const siteData = getSiteData();
   return {
-    props: {
-      siteData,
-    },
+    props: { siteData },
   };
 }

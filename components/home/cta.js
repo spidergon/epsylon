@@ -15,7 +15,6 @@ export default function Cta({ action1, action2 }) {
         </div>
       </div>
 
-      {/* Style */}
       <style jsx>{`
         .cta {
           padding: 2em 0;

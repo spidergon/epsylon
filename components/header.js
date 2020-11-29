@@ -1,25 +1,27 @@
 import Link from 'next/link';
-import { Fragment, useState } from 'react';
+import { useRouter } from 'next/router';
+// import { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 
 export default function Header({ menuItems, title }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useRouter();
+  // const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header>
-      <div className="container flex">
+      <div className="container flex column">
         <Link href="/">
           <a className="site-title">{title}</a>
         </Link>
 
         {/* Desktop Menu */}
 
-        <nav hidden>
+        <nav>
           <ul className="flex">
             {menuItems.map(({ link, label }, index) => (
               <li key={index}>
                 <Link href={link}>
-                  <a>{label}</a>
+                  <a className={pathname.match(link) ? 'active' : ''}>{label}</a>
                 </Link>
               </li>
             ))}
@@ -28,7 +30,7 @@ export default function Header({ menuItems, title }) {
 
         {/* Mobile Menu */}
 
-        <button
+        {/* <button
           aria-label={menuOpen ? 'Fermer' : 'Ouvrir'}
           className="nav-btn flex pointer"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -48,11 +50,10 @@ export default function Header({ menuItems, title }) {
               ))}
             </ul>
           </nav>
-        )}
+        )} */}
       </div>
 
-      {/* No Script */}
-      <noscript>
+      {/* <noscript>
         <p>
           <em>Javascript est désactivé !</em>
         </p>
@@ -62,20 +63,19 @@ export default function Header({ menuItems, title }) {
             {index !== menuItems.length - 1 && '  |  '}
           </Fragment>
         ))}
-      </noscript>
+      </noscript> */}
 
-      {/* Style */}
       <style jsx>{`
-        header {
+        /*header {
           position: sticky;
           top: 0;
           background: var(--white);
           z-index: 1;
-        }
+        }*/
 
         .container {
-          height: 64px;
-          justify-content: space-between;
+          /*height: 64px;*/
+          /*justify-content: space-between;*/
           align-items: center;
           border-bottom: 1px solid var(--border-color);
         }
@@ -87,25 +87,31 @@ export default function Header({ menuItems, title }) {
           text-decoration: none;
         }
 
-        .nav-btn {
+        /*.nav-btn {
           border: 0;
-        }
+        }*/
 
-        .site-title,
+        /*.site-title,
         .nav-btn {
           z-index: 1;
-        }
+        }*/
 
         nav {
           font-weight: 500;
+          padding: 0.5em 0;
         }
 
+        nav ul {
+          gap: 1.5em;
+        }
+
+        .active,
         nav a:hover,
         nav a:focus {
           color: var(--primary);
         }
 
-        .nav-mobile {
+        /*.nav-mobile {
           position: absolute;
           top: 0;
           right: 0;
@@ -128,7 +134,7 @@ export default function Header({ menuItems, title }) {
           padding: 1em 0;
           display: inline-block;
           width: 100%;
-        }
+        }*/
 
         @media (min-width: 481px) {
           .site-title {
@@ -137,17 +143,22 @@ export default function Header({ menuItems, title }) {
         }
 
         @media (min-width: 768px) {
-          nav {
+          .container {
+            flex-direction: row;
+            justify-content: space-between;
+            height: 64px;
+          }
+          /*nav {
             display: flex !important;
           }
           li:not(:first-child) {
             margin-left: 2em;
-          }
-          .nav-btn,
+          }*/
+          /*.nav-btn,
           .nav-mobile,
           noscript {
             display: none !important;
-          }
+          }*/
         }
       `}</style>
     </header>

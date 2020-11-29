@@ -104,6 +104,9 @@ section p {
 }
 
 .imgWrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
   background: #d3d3d3;
 }
 
@@ -155,6 +158,12 @@ button {
     Media Queries
 ================== */
 
+@media (min-width: 481px) {
+  .imgWrap {
+    height: 300px;
+  }
+}
+
 @media (min-width: 768px) {
   .space {
     margin-top: 6em;
@@ -170,5 +179,8 @@ button {
   }
   .page {
     margin-top: 4em;
+  }
+  .imgWrap {
+    height: 500px;
   }
 }

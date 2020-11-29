@@ -29,7 +29,6 @@ export default function Services({ data }) {
         </div>
       </div>
 
-      {/* Style */}
       <style jsx>{`
         .head {
           margin: 0 0 0.5em;
@@ -41,16 +40,20 @@ export default function Services({ data }) {
           max-width: 35em;
           margin: 1em auto;
         }
+
         .grid {
           gap: 1.5em;
         }
+
         .icon {
           padding-right: 0.5em;
           color: var(--primary);
         }
+
         h3 {
           color: var(--black);
         }
+
         a.custom {
           margin-top: 0.5em;
           display: inline-block;

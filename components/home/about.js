@@ -14,7 +14,6 @@ export default function About({ data }) {
         </div>
       </div>
 
-      {/* Style */}
       <style jsx>{`
         .container {
           align-items: center;
@@ -23,18 +22,12 @@ export default function About({ data }) {
           margin-bottom: 0.5em;
         }
         .imgWrap {
-          position: relative;
           margin-top: 2em;
-          width: 100%;
-          height: 250px;
         }
 
         @media (min-width: 481px) {
           .text {
             max-width: 35em;
-          }
-          .imgWrap {
-            height: 300px;
           }
         }
 
@@ -58,7 +51,6 @@ export default function About({ data }) {
           .imgWrap {
             margin-top: 0;
             max-width: 640px;
-            height: 500px;
             order: -1; /* image first */
           }
         }

@@ -2,7 +2,8 @@ import Layout from '../components/layout';
 import Hero from '../components/home/hero';
 import About from '../components/home/about';
 import Services from '../components/home/services';
-import Cta from '../components/home/Cta';
+import Cta from '../components/home/cta';
+import Cayenne from '../components/home/cayenne';
 import getSiteData from '../lib/siteData';
 
 export default function HomePage({ siteData }) {
@@ -13,6 +14,7 @@ export default function HomePage({ siteData }) {
       <Services data={data.services} />
       <About data={data.about} />
       <Cta action1={data.hero.action1} action2={data.hero.action2} />
+      <Cayenne data={data.cayenne} />
     </Layout>
   );
 }
@@ -20,8 +22,6 @@ export default function HomePage({ siteData }) {
 export async function getStaticProps() {
   const siteData = getSiteData();
   return {
-    props: {
-      siteData,
-    },
+    props: { siteData },
   };
 }

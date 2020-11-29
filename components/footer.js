@@ -1,7 +1,10 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
 export default function Footer({ menuItems, title, socials }) {
+  const { pathname } = useRouter();
+
   return (
     <footer className="space">
       <div className="container center">
@@ -9,13 +12,13 @@ export default function Footer({ menuItems, title, socials }) {
           {menuItems.map(({ link, label }, index) => (
             <li key={index}>
               <Link href={link}>
-                <a>{label}</a>
+                <a className={pathname.match(link) ? 'active' : ''}>{label}</a>
               </Link>
             </li>
           ))}
           <li>
-            <Link href="/mentions-legales/">
-              <a>Mentions légales</a>
+            <Link href="/mentions-legales">
+              <a className={pathname.match('/mentions-legales') ? 'active' : ''}>Mentions légales</a>
             </Link>
           </li>
         </ul>
@@ -71,6 +74,7 @@ export default function Footer({ menuItems, title, socials }) {
           padding-left: 1em;
         }
 
+        .active,
         a:hover,
         a:focus {
           color: initial;

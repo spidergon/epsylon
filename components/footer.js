@@ -16,11 +16,6 @@ export default function Footer({ menuItems, title, socials }) {
               </Link>
             </li>
           ))}
-          <li>
-            <Link href="/mentions-legales">
-              <a className={pathname.match('/mentions-legales') ? 'active' : ''}>Mentions légales</a>
-            </Link>
-          </li>
         </ul>
         <ul className="socials mt2">
           <li>
@@ -49,25 +44,26 @@ export default function Footer({ menuItems, title, socials }) {
             </a>
           </li>
         </ul>
-        <ul className="sub mt2">
-          <li>
-            &copy;{' '}
-            <Link href="/">
-              <a>{title}</a>
-            </Link>
-          </li>
-        </ul>
+        <p className="mt2">
+          &copy;&nbsp;
+          <Link href="/">
+            <a>{title}</a>
+          </Link>
+          &nbsp;{' | '}&nbsp;
+          <Link href="/mentions-legales">
+            <a className={pathname.match('mentions-legales') ? 'active' : ''}>Mentions légales</a>
+          </Link>
+        </p>
       </div>
 
       <style jsx>{`
         footer {
-          padding: 1em 0 1.5em;
+          padding: 1em 0 2em;
           border-top: 1px solid rgba(151, 151, 151, 0.2);
         }
 
         .menu a {
-          padding: 0.75em;
-          display: inline-block;
+          padding: 0.5em;
         }
 
         .socials li:not(:first-child) {
@@ -80,13 +76,13 @@ export default function Footer({ menuItems, title, socials }) {
           color: initial;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 481px) {
           .menu {
             flex-direction: row;
             justify-content: center;
           }
-          .menu li:not(:first-child) {
-            padding-left: 1em;
+          .menu a {
+            padding: 0.75em;
           }
         }
       `}</style>

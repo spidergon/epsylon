@@ -56,7 +56,6 @@ export default function Services({ data }) {
 
         a.custom {
           margin-top: 0.5em;
-          display: inline-block;
         }
 
         @media (min-width: 768px) {

@@ -13,7 +13,7 @@ export default function Header({ menuItems, title }) {
         </Link>
 
         <nav>
-          <ul className="grid">
+          <ul className="flex">
             {menuItems.map(({ link, label }, index) => (
               <li key={index}>
                 <Link href={link}>
@@ -44,9 +44,10 @@ export default function Header({ menuItems, title }) {
         }
 
         nav ul {
-          grid-template-columns: auto auto;
+          /*grid-template-columns: auto auto;
           justify-items: center;
-          grid-column-gap: 1em;
+          grid-column-gap: 1em;*/
+          gap: 1em;
         }
 
         nav a {

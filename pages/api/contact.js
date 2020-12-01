@@ -16,19 +16,19 @@ export default async (req, res) => {
   const { body } = req;
 
   // Check if they have filled out the honeypot
-  if (body.visu) {
-    return response(400, 'Boop beep bop zzzzstt good bye', `Robot detected! field: ${body.visu}`);
+  if (body.name || body.email) {
+    return response(400, 'beep!');
   }
 
-  const requiredFields = ['name', 'email', 'message', 'consent'];
+  const requiredFields = ['nomodktl', 'mailhgnxo', 'subject', 'message', 'consent'];
   for (const field of requiredFields) {
     if (!body[field]) {
       return response(400, 'Invalid request', `Field "${field}" required`);
     }
   }
 
-  if (!emailPattern.test(body.email)) {
-    return response(400, 'Invalid request', `Incorrect email: ${body.email}`);
+  if (!emailPattern.test(body.mailhgnxo)) {
+    return response(400, 'Invalid request', `Incorrect email: ${body.mailhgnxo}`);
   }
 
   if (typeof body.consent !== 'boolean') {
@@ -37,8 +37,9 @@ export default async (req, res) => {
 
   try {
     await createContact({
-      Name: purify(body.name),
-      Email: body.email,
+      Name: purify(body.nomodktl),
+      Email: body.mailhgnxo,
+      Subject: purify(body.subject),
       Message: purify(body.message),
       Consent: body.consent,
     });

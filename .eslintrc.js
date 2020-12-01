@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['alloy', 'alloy/react'],
-  plugins: ['html', 'react-hooks'],
+  plugins: ['react-hooks'],
   env: {
     // Your environments (which contains several predefined global variables)
     //
@@ -16,7 +16,6 @@ module.exports = {
     // myGlobal: false
   },
   rules: {
-    // Customize your rules
     'prefer-const': 'error',
     'react/jsx-sort-props': [
       'warn',

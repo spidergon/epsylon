@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint -o ./eslint_result.html -f html ."
+    "lint": "eslint -o ./eslint_result.html -f html .",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "dependencies": {
     "cogo-toast": "4.2.3",
@@ -26,7 +28,6 @@
     "dompurify": "2.2.2",
     "eslint": "7.14.0",
     "eslint-config-alloy": "3.8.2",
-    "eslint-plugin-html": "6.1.1",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "4.2.0",
     "html-to-text": "6.0.0",

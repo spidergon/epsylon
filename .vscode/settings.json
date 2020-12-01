@@ -8,6 +8,6 @@
     "source.fixAll.eslint": true
   },
   "files.watcherExclude": {
-    "**/.next/**": true
+    ".next/**": true
   }
 }

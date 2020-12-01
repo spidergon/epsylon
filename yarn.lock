@@ -1670,7 +1670,7 @@ domutils@2.1.0:
     domelementtype "^2.0.1"
     domhandler "^3.0.0"
 
-domutils@^2.0.0, domutils@^2.4.2:
+domutils@^2.0.0:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-2.4.2.tgz#7ee5be261944e1ad487d9aa0616720010123922b"
   integrity sha512-NKbgaM8ZJOecTZsIzW5gSuplsX2IWW2mIK7xVr8hTQF2v1CJWTmLZ1HOCh5sH+IzVPAGE5IucooOkvwBRAdowA==
@@ -1861,13 +1861,6 @@ eslint-config-alloy@3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/eslint-config-alloy/-/eslint-config-alloy-3.8.2.tgz#882eeb408987197a5ed3f94aa1f595f4dd7dec53"
   integrity sha512-RNfxhlPeob4YxjCAvP+9RwchTe3zX4u5x4BYOVsAatuV0ahx3yhO0mkzZhIWD5V5mOCXQn9PtfoUlcthMDDKKA==
-
-eslint-plugin-html@6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-6.1.1.tgz#95aee151900b9bb2da5fa017b45cc64456a0a74e"
-  integrity sha512-JSe3ZDb7feKMnQM27XWGeoIjvP4oWQMJD9GZ6wW67J7/plVL87NK72RBwlvfc3tTZiYUchHhxAwtgEd1GdofDA==
-  dependencies:
-    htmlparser2 "^5.0.1"
 
 eslint-plugin-react-hooks@4.2.0:
   version "4.2.0"
@@ -2520,16 +2513,6 @@ htmlparser2@4.1.0, htmlparser2@^4.1.0:
     domelementtype "^2.0.1"
     domhandler "^3.0.0"
     domutils "^2.0.0"
-    entities "^2.0.0"
-
-htmlparser2@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-5.0.1.tgz#7daa6fc3e35d6107ac95a4fc08781f091664f6e7"
-  integrity sha512-vKZZra6CSe9qsJzh0BjBGXo8dvzNsq/oGvsjfRdOrrryfeD9UOBEEQdeoqCRmKZchF5h2zOBMQ6YuQ0uRUmdbQ==
-  dependencies:
-    domelementtype "^2.0.1"
-    domhandler "^3.3.0"
-    domutils "^2.4.2"
     entities "^2.0.0"
 
 http-errors@1.7.3:

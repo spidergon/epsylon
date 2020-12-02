@@ -4,7 +4,7 @@
   --black: #161e2e;
   --white: #f8f8f8;
   --border-color: rgba(151, 151, 151, 0.2);
-  --success: #1cb495;
+  /* --success: #1cb495; */
   --error: #ff2361;
 }
 
@@ -17,11 +17,8 @@
 */
 
 body {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   background: var(--white);
   color: var(--main-color);
-  /* display: flex;
-  flex-direction: column; */
 }
 
 a {
@@ -43,10 +40,6 @@ a.custom:focus {
       Layout
 ================= */
 
-/* main {
-  flex: 1 0 auto;
-} */
-
 ul {
   margin: 0;
   padding: 0;
@@ -58,9 +51,9 @@ li {
 }
 
 section h2 {
-  color: var(--black);
   font-size: 2rem;
   line-height: 1.2;
+  color: var(--black);
 }
 
 section p {
@@ -117,6 +110,7 @@ section p {
   margin-top: 2em;
 }
 .page h1 {
+  font-size: 2rem;
   color: var(--black);
   margin-bottom: 1em;
 }
@@ -124,10 +118,6 @@ section p {
 /* =================
       Buttons
 ================= */
-
-button {
-  background: transparent;
-}
 
 .btn {
   display: inline-block;

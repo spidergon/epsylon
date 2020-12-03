@@ -1,23 +1,24 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
+import styles from '@styles/footer.module.css';
 
 export default function Footer({ menuItems, title, socials }) {
   const { pathname } = useRouter();
 
   return (
-    <footer className="space">
+    <footer className={`${styles.footer} space`}>
       <div className="container center">
-        <ul className="menu flex column">
+        <ul className={`${styles.menu} flex`}>
           {menuItems.map(({ link, label }, index) => (
             <li key={index}>
               <Link href={link}>
-                <a className={pathname.match(link) ? 'active' : ''}>{label}</a>
+                <a className={pathname.match(link) ? styles.active : ''}>{label}</a>
               </Link>
             </li>
           ))}
         </ul>
-        <ul className="socials mt2">
+        <ul className={`${styles.socials} mt2`}>
           <li>
             <a
               aria-label="twitter"
@@ -51,41 +52,10 @@ export default function Footer({ menuItems, title, socials }) {
           </Link>
           &nbsp;{' | '}&nbsp;
           <Link href="/mentions-legales">
-            <a className={pathname.match('mentions-legales') ? 'active' : ''}>Mentions légales</a>
+            <a className={pathname.match('mentions-legales') ? styles.active : ''}>Mentions légales</a>
           </Link>
         </p>
       </div>
-
-      <style jsx>{`
-        footer {
-          padding: 1em 0 2em;
-          border-top: 1px solid rgba(151, 151, 151, 0.2);
-        }
-
-        .menu a {
-          padding: 0.5em;
-        }
-
-        .socials li:not(:first-child) {
-          padding-left: 1em;
-        }
-
-        .active,
-        a:hover,
-        a:focus {
-          color: initial;
-        }
-
-        @media (min-width: 481px) {
-          .menu {
-            flex-direction: row;
-            justify-content: center;
-          }
-          .menu a {
-            padding: 0.75em;
-          }
-        }
-      `}</style>
     </footer>
   );
 }

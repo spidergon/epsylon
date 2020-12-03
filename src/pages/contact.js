@@ -1,7 +1,7 @@
-import Layout from '../components/layout';
-import Page from '../components/page';
-import getSiteData from '../lib/siteData';
-import ContactForm from '../components/contact';
+import Layout from '@components/layout';
+import Page from '@components/page';
+import ContactForm from '@components/contact';
+import getSiteData from '@utils/siteData';
 
 export default function ContactPage({ siteData }) {
   return (

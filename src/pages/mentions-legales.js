@@ -1,6 +1,6 @@
-import Layout from '../components/layout';
-import Page from '../components/page';
-import getSiteData from '../lib/siteData';
+import Layout from '@components/layout';
+import Page from '@components/page';
+import getSiteData from '@utils/siteData';
 
 export default function LegalPage({ siteData }) {
   return (

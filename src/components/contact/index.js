@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Formik, Form } from 'formik';
 import Fieldset from './fieldset';
 import Consent from './consent';
-import toast from '../../lib/toast';
+import toast from '@utils/toast';
 
 const errMsg = 'Erreur ! Veuillez réessayer ultérieurement.';
 

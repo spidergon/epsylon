@@ -1,0 +1,70 @@
+.wrapper,
+.tagline {
+  flex-direction: column;
+}
+
+.tagline {
+  margin: 2em 0;
+}
+
+.tagline h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--black);
+}
+
+.tagline h1 span {
+  color: var(--primary);
+}
+
+.tagline p {
+  margin-top: 1.5em;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.actions {
+  margin-top: 2em;
+}
+
+@media (min-width: 481px) {
+  .tagline {
+    align-items: center;
+  }
+
+  .tagline h1 {
+    font-size: 3rem;
+  }
+
+  .tagline p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .tagline {
+    align-self: center;
+    margin-top: 4em;
+    max-width: 36rem;
+  }
+
+  .tagline h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .tagline {
+    margin-top: 5em;
+    margin-right: 4em;
+    text-align: inherit;
+    align-self: inherit;
+    align-items: inherit;
+  }
+}

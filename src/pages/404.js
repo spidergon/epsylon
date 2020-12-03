@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Layout from '../components/layout';
-import Page from '../components/page';
-import getSiteData from '../lib/siteData';
+import Layout from '@components/layout';
+import Page from '@components/page';
+import getSiteData from '@utils/siteData';
 
 export default function Custom404({ siteData }) {
   return (

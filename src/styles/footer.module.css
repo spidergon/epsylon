@@ -1,0 +1,33 @@
+.footer {
+  padding: 1em 0 2em;
+  border-top: 1px solid rgba(151, 151, 151, 0.2);
+}
+
+.menu {
+  flex-direction: column;
+}
+
+.menu a {
+  padding: 0.5em;
+}
+
+.socials li:not(:first-child) {
+  padding-left: 1em;
+}
+
+.active,
+.footer a:hover,
+.footer a:focus {
+  color: initial;
+}
+
+@media (min-width: 481px) {
+  .menu {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .menu a {
+    padding: 0.75em;
+  }
+}

@@ -1,10 +1,10 @@
-import Layout from '../components/layout';
-import Hero from '../components/home/hero';
-import About from '../components/home/about';
-import Services from '../components/home/services';
-import Cta from '../components/home/cta';
-import Cayenne from '../components/home/cayenne';
-import getSiteData from '../lib/siteData';
+import Layout from '@components/layout';
+import Hero from '@components/home/hero';
+import About from '@components/home/about';
+import Services from '@components/home/services';
+import Cta from '@components/home/cta';
+import Cayenne from '@components/home/cayenne';
+import getSiteData from '@utils/siteData';
 
 export default function HomePage({ siteData }) {
   const data = siteData.data.home;

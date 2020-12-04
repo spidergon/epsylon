@@ -5,7 +5,7 @@ export default () => ({
   title: 'Epsylon Guyane',
   description:
     "Cours particulier de Mathématiques, aide aux devoirs, correction des devoirs et initiation à l'outils informatique.",
-  headerMenu: [
+  menu: [
     { label: 'Services', link: '/services' },
     { label: 'À propos', link: '/a-propos' },
     { label: 'Contact', link: '/contact' },
@@ -70,15 +70,13 @@ export default () => ({
         alt: 'progresser en mathématiques à cayenne',
       },
     },
-    cours: {
-      text:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias nihil reprehenderit pariatur error delectus, corrupti, perspiciatis cum, aliquam officia vero odit sit sapiente voluptas architecto quibusdam similique dolor dolorem? Et.',
-      action: { label: 'Réservez votre cours', link: '/connexion' },
-    },
-    devoirs: {
-      text:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias nihil reprehenderit pariatur error delectus, corrupti, perspiciatis cum, aliquam officia vero odit sit sapiente voluptas architecto quibusdam similique dolor dolorem? Et.',
-      action: { label: 'Commandez votre correction', link: '/connexion' },
+    contact: {
+      subjects: [
+        { value: 'cours', label: 'Cours particulier en ligne' },
+        { value: 'corrections', label: 'Commande de correction' },
+        { value: 'informatique', label: "Initiation à l'informatique" },
+        { value: 'autre', label: 'Autre' },
+      ],
     },
   },
 });

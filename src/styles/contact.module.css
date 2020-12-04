@@ -1,0 +1,64 @@
+.tagline p {
+  font-size: 1rem;
+  margin-bottom: 0.5em;
+}
+
+.form {
+  max-width: 35em;
+  margin: 3em auto;
+  gap: 1.5em;
+}
+
+.form input[type='text'],
+.form input[type='email'],
+.form textarea {
+  /* requis pour composer de manière appropriée les éléments
+    de formulaire sur les navigateurs fondés sur WebKit */
+  -webkit-appearance: none;
+
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-family: inherit;
+  height: 3em;
+  background: transparent;
+  color: var(--black);
+  padding: 0 0.5em;
+}
+
+.form select {
+  height: 3em;
+}
+
+.form textarea {
+  height: inherit;
+  padding: 0.5em;
+}
+
+.form button {
+  margin-top: 0.5em;
+}
+
+/* .form input[type='text']:focus,
+.form input[type='email']:focus,
+.form input[type='checkbox']:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 1px 1px var(--primary);
+}*/
+
+.visu {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
+
+@media (min-width: 768px) {
+  .tagline p {
+    font-size: 1.25rem;
+  }
+}

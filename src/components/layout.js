@@ -41,11 +41,11 @@ export default function Layout({ children, siteData, title }) {
         <meta content="summary" name="twitter:card" />
       </Head>
 
-      <Header menuItems={siteData.headerMenu} title={siteData.title} />
+      <Header menuItems={siteData.menu} title={siteData.title} />
 
       <main>{children}</main>
 
-      <Footer menuItems={siteData.headerMenu} socials={siteData.socials} title={siteData.title} />
+      <Footer menuItems={siteData.menu} socials={siteData.socials} title={siteData.title} />
     </>
   );
 }
@@ -54,7 +54,7 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   siteData: PropTypes.shape({
     description: PropTypes.string.isRequired,
-    headerMenu: PropTypes.array.isRequired,
+    menu: PropTypes.array.isRequired,
     socials: PropTypes.shape({
       twitter: PropTypes.string.isRequired,
     }).isRequired,

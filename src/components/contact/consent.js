@@ -14,7 +14,7 @@ export default function Consent() {
           .
         </p>
       </label>
-      <ErrorMessage className="error" component="span" name="consent" />
+      <ErrorMessage component="span" name="consent" style={{ color: 'var(--error)' }} />
     </div>
   );
 }

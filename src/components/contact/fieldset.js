@@ -3,10 +3,10 @@ import { Field, ErrorMessage } from 'formik';
 
 export default function Fieldset({ name, label, ...rest }) {
   return (
-    <div className="field flex column" style={{ gap: '0.5em' }}>
+    <div className="flex column" style={{ gap: '0.5em' }}>
       <label htmlFor={name}>{label}</label>
       <Field id={name} name={name} {...rest} />
-      <ErrorMessage className="error" component="span" name={name} />
+      <ErrorMessage component="span" name={name} style={{ color: 'var(--error)' }} />
     </div>
   );
 }

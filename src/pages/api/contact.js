@@ -1,5 +1,5 @@
-import { createContact } from './_utils/base';
-import purify from './_utils/purify';
+import { createContact } from '@api/base';
+import purify from '@api/purify';
 
 const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 

@@ -1,8 +1,6 @@
 import { createContact } from '@api/base';
 import purify from '@api/purify';
 
-const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
 export default async (req, res) => {
   const response = (status, message, error) => {
     if (error) console.error('Error: ', { status, message, error });
@@ -20,12 +18,14 @@ export default async (req, res) => {
     return response(400, 'beep!');
   }
 
-  const requiredFields = ['nomodktl', 'mailhgnxo', 'subject', 'message', 'consent'];
+  const requiredFields = ['mailhgnxo', 'subject', 'message', 'consent'];
   for (const field of requiredFields) {
     if (!body[field]) {
       return response(400, 'Invalid request', `Field "${field}" required`);
     }
   }
+
+  const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (!emailPattern.test(body.mailhgnxo)) {
     return response(400, 'Invalid request', `Incorrect email: ${body.mailhgnxo}`);
@@ -37,7 +37,7 @@ export default async (req, res) => {
 
   try {
     await createContact({
-      Name: purify(body.nomodktl),
+      Name: body.nomodktl ? purify(body.nomodktl) : '',
       Email: body.mailhgnxo,
       Subject: purify(body.subject),
       Message: purify(body.message),
@@ -45,6 +45,6 @@ export default async (req, res) => {
     });
     response(200, 'success');
   } catch (error) {
-    return response(500, 'Internal error', error);
+    response(500, 'Internal error', error);
   }
 };

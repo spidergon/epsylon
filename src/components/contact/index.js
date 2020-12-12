@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { Formik, Form } from 'formik';
 import Fieldset from './fieldset';
 import Consent from './consent';
 import toast from '@utils/toast';
 import styles from '@styles/contact.module.css';
+// import purify from '@utils/purify';
 
 const errMsg = 'Erreur ! Veuillez réessayer ultérieurement.';
 
 export default function Contact({ data }) {
+  const [sentValues, setSentValues] = useState(null);
   const [subject, setSubject] = useState('');
 
   const {
@@ -21,7 +24,6 @@ export default function Contact({ data }) {
 
   const handleValidate = (values) => {
     const errors = {};
-    if (!values.nomodktl) errors.nomodktl = 'Ce champ est requis';
     if (!values.mailhgnxo) errors.mailhgnxo = 'Ce champ est requis';
     else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.mailhgnxo)) {
       errors.mailhgnxo = 'Adresse e-mail invalide';
@@ -44,8 +46,9 @@ export default function Contact({ data }) {
           toast(errMsg, 'error');
         } else {
           // It worked!
-          resetForm();
-          toast('Merci ! Votre message a été envoyé avec succès.', 'success');
+          // resetForm();
+          // toast('Merci ! Votre message a été envoyé avec succès.', 'success');
+          setSentValues({ subject, ...values });
         }
       })
       .catch((err) => {
@@ -59,78 +62,97 @@ export default function Contact({ data }) {
 
   return (
     <>
-      <div className={`${styles.tagline} center`}>
-        {!s && <p>Vous souhaitez réserver un cours particulier en ligne ou commander une correction&nbsp;?</p>}
-        {s === 'cours' && <p>Vous souhaitez réserver votre cours particulier en ligne&nbsp;?</p>}
-        {s === 'corrections' && <p>Confiez-nous la correction de vos devoirs</p>}
-        <p>Veuillez nous contacter via le formulaire ci-dessous&nbsp;:</p>
-      </div>
+      {!sentValues && (
+        <>
+          <div className={`${styles.tagline} center`}>
+            {!s && <p>Vous souhaitez réserver un cours particulier en ligne ou commander une correction&nbsp;?</p>}
+            {s === 'cours' && <p>Vous souhaitez réserver votre cours particulier en ligne&nbsp;?</p>}
+            {s === 'corrections' && <p>Confiez-nous la correction de vos devoirs</p>}
+            <p>Veuillez nous contacter via le formulaire ci-dessous&nbsp;:</p>
+          </div>
 
-      <Formik
-        initialValues={{
-          nomodktl: '',
-          mailhgnxo: '',
-          message: '',
-          consent: false,
-          name: '', // honeypot
-          email: '', // honeypot
-        }}
-        validate={handleValidate}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting }) => (
-          <Form className={`${styles.form} flex column`}>
-            <Fieldset autoComplete="off" label="Nom :" name="nomodktl" type="text" />
+          <Formik
+            initialValues={{
+              nomodktl: '',
+              mailhgnxo: '',
+              message: '',
+              consent: false,
+              name: '', // honeypot
+              email: '', // honeypot
+            }}
+            validate={handleValidate}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting }) => (
+              <Form className={`${styles.form} flex column`}>
+                <Fieldset autoComplete="off" label="Nom :" name="nomodktl" type="text" />
 
-            <Fieldset label="E-mail :" name="mailhgnxo" type="text" />
+                <Fieldset label="E-mail :" name="mailhgnxo" type="text" />
 
-            <Fieldset
-              as="select"
-              label="Sujet :"
-              name="subject"
-              value={subject}
-              onChange={({ target }) => setSubject(target.value)}
-            >
-              {data.subjects.map(({ value, label }) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              ))}
-            </Fieldset>
+                <Fieldset
+                  as="select"
+                  label="Sujet :"
+                  name="subject"
+                  value={subject}
+                  onChange={({ target }) => setSubject(target.value)}
+                >
+                  {data.subjects.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </Fieldset>
 
-            <Fieldset as="textarea" label="Message :" name="message" rows="5" />
+                <Fieldset as="textarea" label="Message :" name="message" rows="5" />
 
-            <Consent />
+                <Consent />
 
-            {/* Honeypot */}
-            <label className={styles.visu} htmlFor="name" />
-            <input
-              autoComplete="off"
-              className={styles.visu}
-              id="name"
-              name="name"
-              placeholder="Your name here"
-              tabIndex="-1"
-              type="text"
-            />
-            <label className={styles.visu} htmlFor="email" />
-            <input
-              autoComplete="off"
-              className={styles.visu}
-              id="email"
-              name="email"
-              placeholder="Your e-mail here"
-              tabIndex="-1"
-              type="email"
-            />
-            {/* end honeypot */}
+                {/* Honeypot */}
+                <label className={styles.visu} htmlFor="name" />
+                <input
+                  autoComplete="off"
+                  className={styles.visu}
+                  id="name"
+                  name="name"
+                  placeholder="Your name here"
+                  tabIndex="-1"
+                  type="text"
+                />
+                <label className={styles.visu} htmlFor="email" />
+                <input
+                  autoComplete="off"
+                  className={styles.visu}
+                  id="email"
+                  name="email"
+                  placeholder="Your e-mail here"
+                  tabIndex="-1"
+                  type="email"
+                />
+                {/* end honeypot */}
 
-            <button className="btn" disabled={isSubmitting} type="submit">
-              {isSubmitting ? 'Chargment...' : 'Envoyer'}
-            </button>
-          </Form>
-        )}
-      </Formik>
+                <button className="btn" disabled={isSubmitting} type="submit">
+                  {isSubmitting ? 'Chargment...' : 'Envoyer'}
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </>
+      )}
+      {sentValues && (
+        <div className={`flex column ${styles.msgSent}`}>
+          <h2>Votre message a été envoyé avec succès !</h2>
+          {/* <p>Nom : {sentValues.nomodktl}</p>
+          <p>E-mail : {sentValues.mailhgnxo}</p>
+          <p>Sujet : {sentValues.subject}</p>
+          <p>Message :</p>
+          <p>{sentValues.message ? purify(sentValues.message) : ''}</p> */}
+          <Link href="/">
+            <a className="custom mt2" style={{ display: 'inline-block' }}>
+              ⬅ Retourner à la page d&rsquo;accueil
+            </a>
+          </Link>
+        </div>
+      )}
     </>
   );
 }

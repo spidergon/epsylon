@@ -1,12 +1,19 @@
 import PropTypes from 'prop-types';
-import { Field, ErrorMessage } from 'formik';
+import { Field, useField } from 'formik';
+import styles from '@styles/contact.module.css';
 
 export default function Fieldset({ name, label, ...rest }) {
+  const [field, meta] = useField({ name });
+
+  const isError = meta.touched && meta.error && field.name === name;
+
   return (
-    <div className="flex column" style={{ gap: '0.5em' }}>
-      <label htmlFor={name}>{label}</label>
+    <div className={`flex column ${isError ? styles.error : ''}`} style={{ gap: '0.5em' }}>
+      <div className="flex" style={{ justifyContent: 'space-between' }}>
+        <label htmlFor={name}>{label}</label>
+        {isError && <span style={{ color: 'var(--error)' }}>{meta.error}</span>}
+      </div>
       <Field id={name} name={name} {...rest} />
-      <ErrorMessage component="span" name={name} style={{ color: 'var(--error)' }} />
     </div>
   );
 }

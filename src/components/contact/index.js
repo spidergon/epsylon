@@ -71,7 +71,7 @@ export default function Contact({ data }) {
           nomodktl: '',
           mailhgnxo: '',
           message: '',
-          consent: '',
+          consent: false,
           name: '', // honeypot
           email: '', // honeypot
         }}

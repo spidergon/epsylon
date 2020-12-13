@@ -36,14 +36,15 @@ export default async (req, res) => {
   }
 
   try {
-    await createContact({
+    const fields = {
       Name: body.nomodktl ? purify(body.nomodktl) : '',
       Email: body.mailhgnxo,
       Subject: purify(body.subject),
       Message: purify(body.message),
       Consent: body.consent,
-    });
-    response(200, 'success');
+    };
+    await createContact(fields);
+    res.status(200).json({ status: 200, message: 'success', fields });
   } catch (error) {
     response(500, 'Internal error', error);
   }

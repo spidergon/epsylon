@@ -6,7 +6,6 @@ import Fieldset from './fieldset';
 import Consent from './consent';
 import toast from '@utils/toast';
 import styles from '@styles/contact.module.css';
-// import purify from '@utils/purify';
 
 const errMsg = 'Erreur ! Veuillez réessayer ultérieurement.';
 
@@ -33,22 +32,20 @@ export default function Contact({ data }) {
     return errors;
   };
 
-  const handleSubmit = (values, { resetForm, setSubmitting }) => {
+  const handleSubmit = (values, { setSubmitting }) => {
     fetch(`/api/contact`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ subject, ...values }),
     })
       .then((res) => res.json())
-      .then(({ status, message }) => {
+      .then(({ status, message, fields }) => {
         if (status >= 400 && status < 600) {
           console.error(message);
           toast(errMsg, 'error');
         } else {
           // It worked!
-          // resetForm();
-          // toast('Merci ! Votre message a été envoyé avec succès.', 'success');
-          setSentValues({ subject, ...values });
+          setSentValues(fields);
         }
       })
       .catch((err) => {
@@ -141,15 +138,31 @@ export default function Contact({ data }) {
       {sentValues && (
         <div className={`flex column ${styles.msgSent}`}>
           <h2>Votre message a été envoyé avec succès !</h2>
-          {/* <p>Nom : {sentValues.nomodktl}</p>
-          <p>E-mail : {sentValues.mailhgnxo}</p>
-          <p>Sujet : {sentValues.subject}</p>
-          <p>Message :</p>
-          <p>{sentValues.message ? purify(sentValues.message) : ''}</p> */}
+          {sentValues.Name && (
+            <>
+              <p>
+                <strong>Nom :</strong>
+              </p>
+              <p className={styles.msg}>{sentValues.Name}</p>
+            </>
+          )}
+          <p>
+            <strong>E-mail :</strong>
+          </p>
+          <p className={styles.msg}>{sentValues.Email}</p>
+          <p>
+            <strong>Sujet :</strong>
+          </p>
+          <p className={styles.msg}>{sentValues.Subject}</p>
+          <p>
+            <strong>Message :</strong>
+          </p>
+          <p
+            className={styles.msg}
+            dangerouslySetInnerHTML={{ __html: sentValues.Message.replace(/(?:\r\n|\r|\n)/g, '<br>') }}
+          />
           <Link href="/">
-            <a className="custom mt2" style={{ display: 'inline-block' }}>
-              ⬅ Retourner à la page d&rsquo;accueil
-            </a>
+            <a className="custom mt2">⬅ Retourner à la page d&rsquo;accueil</a>
           </Link>
         </div>
       )}

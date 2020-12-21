@@ -15,10 +15,6 @@
   padding-left: 1em;
 }
 
-.footer svg {
-  fill: var(--main-color);
-}
-
 .active,
 .footer a:hover,
 .footer a:focus {

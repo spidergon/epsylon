@@ -17,7 +17,7 @@
   "dependencies": {
     "cogo-toast": "4.2.3",
     "formik": "2.2.6",
-    "next": "10.0.3",
+    "next": "10.0.4",
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1"
@@ -27,7 +27,7 @@
     "babel-eslint": "10.1.0",
     "dompurify": "2.2.6",
     "eslint": "7.16.0",
-    "eslint-config-alloy": "3.8.2",
+    "eslint-config-alloy": "3.9.0",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "4.2.0",
     "jsdom": "16.4.0",

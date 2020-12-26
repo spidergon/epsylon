@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   extends: ['alloy', 'alloy/react'],
   plugins: ['react-hooks'],
   env: {
@@ -16,7 +17,12 @@ module.exports = {
     // myGlobal: false
   },
   rules: {
-    'prefer-const': 'error',
+    'prefer-const': [
+      'error',
+      {
+        destructuring: 'all',
+      },
+    ],
     'react/jsx-sort-props': [
       'warn',
       {

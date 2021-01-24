@@ -52,7 +52,9 @@ export default function Footer({ menuItems, title, socials }) {
           </Link>
           &nbsp;{' | '}&nbsp;
           <Link href="/mentions-legales">
-            <a className={pathname.match('mentions-legales') ? styles.active : ''}>Mentions légales</a>
+            <a className={pathname.match('mentions-legales') ? styles.active : ''}>
+              Mentions légales
+            </a>
           </Link>
         </p>
       </div>

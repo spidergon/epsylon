@@ -4,7 +4,10 @@ import getSiteData from '@utils/siteData';
 
 export default function AboutPage({ siteData }) {
   return (
-    <Layout siteData={siteData} title="À propos : cours particuliers en ligne et correction de vos devoirs en Guyane">
+    <Layout
+      siteData={siteData}
+      title="À propos : cours particuliers en ligne et correction de vos devoirs en Guyane"
+    >
       <Page title="À propos de nous">
         <p>content here</p>
       </Page>

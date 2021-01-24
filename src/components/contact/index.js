@@ -62,8 +62,15 @@ export default function Contact({ data }) {
       {!sentValues && (
         <>
           <div className={`${styles.tagline} center`}>
-            {!s && <p>Vous souhaitez réserver un cours particulier en ligne ou commander une correction&nbsp;?</p>}
-            {s === 'cours' && <p>Vous souhaitez réserver votre cours particulier en ligne&nbsp;?</p>}
+            {!s && (
+              <p>
+                Vous souhaitez réserver un cours particulier en ligne ou commander une
+                correction&nbsp;?
+              </p>
+            )}
+            {s === 'cours' && (
+              <p>Vous souhaitez réserver votre cours particulier en ligne&nbsp;?</p>
+            )}
             {s === 'corrections' && <p>Confiez-nous la correction de vos devoirs</p>}
             <p>Veuillez nous contacter via le formulaire ci-dessous&nbsp;:</p>
           </div>
@@ -159,7 +166,9 @@ export default function Contact({ data }) {
           </p>
           <p
             className={styles.msg}
-            dangerouslySetInnerHTML={{ __html: sentValues.Message.replace(/(?:\r\n|\r|\n)/g, '<br>') }}
+            dangerouslySetInnerHTML={{
+              __html: sentValues.Message.replace(/(?:\r\n|\r|\n)/g, '<br>'),
+            }}
           />
           <Link href="/">
             <a className="custom mt2">⬅ Retourner à la page d&rsquo;accueil</a>

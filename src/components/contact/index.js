@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { Formik, Form } from 'formik';
-import Fieldset from './fieldset';
-import Consent from './consent';
-import toast from '@utils/toast';
 import styles from '@styles/contact.module.css';
+import toast from '@utils/toast';
+import { Form, Formik } from 'formik';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Consent from './consent';
+import Fieldset from './fieldset';
 
 const errMsg = 'Erreur ! Veuillez réessayer ultérieurement.';
 
@@ -23,12 +23,14 @@ export default function Contact({ data }) {
 
   const handleValidate = (values) => {
     const errors = {};
+
     if (!values.mailhgnxo) errors.mailhgnxo = 'Ce champ est requis';
     else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.mailhgnxo)) {
       errors.mailhgnxo = 'Adresse e-mail invalide';
     }
     if (!values.message) errors.message = 'Ce champ est requis';
     if (!values.consent) errors.consent = 'Veuillez cocher cette case si vous désirez poursuivre';
+
     return errors;
   };
 

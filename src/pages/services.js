@@ -24,6 +24,7 @@ export default function ServicesPage({ siteData }) {
 
 export async function getStaticProps() {
   const siteData = getSiteData();
+
   return {
     props: { siteData },
   };

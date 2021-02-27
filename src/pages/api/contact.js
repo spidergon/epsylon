@@ -19,6 +19,7 @@ export default async (req, res) => {
   }
 
   const requiredFields = ['mailhgnxo', 'subject', 'message', 'consent'];
+
   for (const field of requiredFields) {
     if (!body[field]) {
       return response(400, 'Invalid request', `Field "${field}" required`);
@@ -43,6 +44,7 @@ export default async (req, res) => {
       Message: purify(body.message),
       Consent: body.consent,
     };
+
     await createContact(fields);
     res.status(200).json({ status: 200, message: 'success', fields });
   } catch (error) {

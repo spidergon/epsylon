@@ -1,5 +1,5 @@
-import { Field, useField } from 'formik';
 import styles from '@styles/contact.module.css';
+import { Field, useField } from 'formik';
 
 export default function Consent() {
   const [field, meta] = useField({ name: 'consent' });

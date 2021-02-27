@@ -1,6 +1,6 @@
+import Contact from '@components/contact';
 import Layout from '@components/layout';
 import Page from '@components/page';
-import Contact from '@components/contact';
 import getSiteData from '@utils/siteData';
 
 export default function ContactPage({ siteData }) {
@@ -18,6 +18,7 @@ export default function ContactPage({ siteData }) {
 
 export async function getStaticProps() {
   const siteData = getSiteData();
+
   return {
     props: { siteData },
   };

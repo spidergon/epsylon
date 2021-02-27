@@ -17,6 +17,7 @@ export default function AboutPage({ siteData }) {
 
 export async function getStaticProps() {
   const siteData = getSiteData();
+
   return {
     props: { siteData },
   };

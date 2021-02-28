@@ -1,9 +1,7 @@
 import Airtable from 'airtable';
-import { airtable } from './env';
+import { airtableEnv } from './env';
 
-const base = new Airtable({ apiKey: airtable.apiKey }).base(airtable.base);
-
-export default base;
+const base = new Airtable({ apiKey: airtableEnv.apiKey }).base(airtableEnv.baseId);
 
 /**
  * Create a contact entry.
